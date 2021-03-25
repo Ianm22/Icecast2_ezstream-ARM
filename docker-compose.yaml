@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  icecast2:
+    image: icecast2_arm:v1
+    container_name: icecast2
+    volumes:
+      - ./conf/icecast2_conf/icecast.xml:/etc/icecast2/icecast.xml 
+    ports:
+      - 8976:8000
+  
+  ezstream:
+    image: ezstream_arm:v1
+    container_name: ezstream
+    depends_on:
+      - icecast2
+    volumes:
+      - ./conf/ezstream_conf/ezstream_mp3.xml:/etc/ezstream/ezstream_mp3.xml
+      - /path/MusicFolder/:/etc/ezstream/music/
+      - /path/playlist.txt:/etc/ezstream/playlist.txt
+    restart: unless-stopped

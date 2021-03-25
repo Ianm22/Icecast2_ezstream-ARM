@@ -1,0 +1,19 @@
+# Ezstream ARM
+#
+# VERSION		0.1
+
+FROM arm64v8/ubuntu:groovy
+LABEL Description="ezstream for arm platform"
+
+RUN apt-get update && \
+    apt-get install && \
+    apt-get install ezstream -y
+
+RUN mkdir /etc/ezstream && \
+    mkdir /etc/ezstream/music
+
+COPY ../../conf/ezstream/ezstream_mp3.xml /etc/ezstream
+
+WORKDIR /etc/ezstream
+
+CMD ["ezstream", "-c", "ezstream_mp3.xml" ]

@@ -1,0 +1,17 @@
+# Icecast2 ARM
+#
+# VERSION		1.0
+
+FROM arm64v8/ubuntu:groovy
+LABEL Description="Icecast2 server for arm platform"
+
+RUN apt-get update && \
+    apt-get install && \
+    apt-get install icecast2 -y
+
+USER icecast2
+WORKDIR /etc/icecast2
+COPY conf/icecast2_conf/icecast.xml /etc/icecast2/
+
+EXPOSE 8000
+CMD ["icecast2", "-c", "icecast.xml"]
