@@ -1,4 +1,7 @@
-<h1>Instructions</h1>
+<h1>Icecast + ezstream + docker</h1>
+<p align="center">
+  <img width="880" height="500" src="./preview.png">
+</p>
 <h2>Icecast2 with docker-run</h2>
 
 ```
