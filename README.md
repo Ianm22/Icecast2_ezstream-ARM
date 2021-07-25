@@ -1,6 +1,6 @@
 <h1>Icecast + ezstream + docker</h1>
 <p align="center">
-  <img width="880" height="500" src="./preview.png">
+  <img width="880" height="490" src="./preview.png">
 </p>
 <h2>Icecast2 with docker-run</h2>
 
